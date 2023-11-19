@@ -28,7 +28,7 @@ public class SpringHelper implements BeanFactoryPostProcessor, ApplicationContex
 
     @Override
     public void postProcessBeanFactory(@Nonnull ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
-
+        // ignore
     }
 
     @Override

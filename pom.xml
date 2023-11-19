@@ -17,6 +17,7 @@
     </developers>
     <modules>
         <module>savior-core</module>
+        <module>savior-event</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -26,6 +27,7 @@
     <properties>
         <!-- modules`version -->
         <savior-core.version>1.0-SNAPSHOT</savior-core.version>
+        <savior-event.version>1.0-SNAPSHOT</savior-event.version>
 
         <!-- versions -->
         <lombok.version>1.18.30</lombok.version>
@@ -108,5 +110,24 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- Source attach plugin 打包时带上源码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>
