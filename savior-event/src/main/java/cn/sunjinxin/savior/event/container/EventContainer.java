@@ -2,7 +2,7 @@ package cn.sunjinxin.savior.event.container;
 
 import cn.sunjinxin.savior.event.configuration.EventProperties;
 import cn.sunjinxin.savior.event.handler.EventHandler;
-import cn.sunjinxin.savior.event.control.EventBus;
+import cn.sunjinxin.savior.event.control.Eventer;
 import com.google.common.collect.Lists;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class EventContainer {
 
     EventProperties eventProperties;
 
-    public EventHandler of(EventBus event) {
+    public EventHandler of(Eventer event) {
         return Optional.ofNullable(eventHandlers).orElse(Lists.newArrayList())
                 .stream()
                 .filter(r -> r.strategy() == eventProperties.getStrategy())

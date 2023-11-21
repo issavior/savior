@@ -1,7 +1,7 @@
 package cn.sunjinxin.savior.event.handler.async;
 
 import cn.sunjinxin.savior.event.handler.EventHandler;
-import cn.sunjinxin.savior.event.control.EventBus;
+import cn.sunjinxin.savior.event.control.Eventer;
 
 /**
  * async
@@ -11,7 +11,7 @@ import cn.sunjinxin.savior.event.control.EventBus;
 public abstract class AsyncEventHandler implements EventHandler {
 
     @Override
-    public EventBus event() {
-        return EventBus.ASYNC;
+    public Eventer event() {
+        return Eventer.ASYNC;
     }
 }

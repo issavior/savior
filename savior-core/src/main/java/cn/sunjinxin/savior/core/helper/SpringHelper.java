@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
 
 /**
  * spring helper
- * <p>BeanFactoryPostProcessor & PriorityOrdered can priority loading</p>
+ * <p>BeanFactoryPostProcessor and PriorityOrdered can priority loading</p>
  *
  * @author issavior
  */

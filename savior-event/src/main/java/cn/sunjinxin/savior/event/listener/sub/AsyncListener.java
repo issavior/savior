@@ -2,7 +2,7 @@ package cn.sunjinxin.savior.event.listener.sub;
 
 import cn.sunjinxin.savior.event.context.EventContext;
 import cn.sunjinxin.savior.event.listener.Listener;
-import cn.sunjinxin.savior.event.control.EventBus;
+import cn.sunjinxin.savior.event.control.Eventer;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.Subscribe;
 
@@ -31,6 +31,6 @@ public interface AsyncListener<T, R> extends Listener<T, EventContext<T, R>> {
 
     @Override
     default void afterPropertiesSet() {
-        EventBus.ASYNC.register(this);
+        Eventer.ASYNC.register(this);
     }
 }

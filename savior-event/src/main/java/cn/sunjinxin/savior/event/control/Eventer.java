@@ -5,12 +5,11 @@ import cn.sunjinxin.savior.event.context.EventContext;
 import cn.sunjinxin.savior.event.container.EventContainer;
 
 /**
- * bus
+ * Eventer
  *
  * @author issavior
  */
-
-public enum EventBus {
+public enum Eventer {
 
     /**
      * SYNC

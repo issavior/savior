@@ -24,6 +24,6 @@ public class EventProperties {
     /**
      * @see ThreadPoolProperties
      */
-    ThreadPoolProperties asyncThreadPool;
+    ThreadPoolProperties asyncThreadPool = new ThreadPoolProperties();
 
 }

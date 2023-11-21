@@ -1,7 +1,7 @@
 package cn.sunjinxin.savior.event.listener.sub;
 
 import cn.sunjinxin.savior.event.context.EventContext;
-import cn.sunjinxin.savior.event.control.EventBus;
+import cn.sunjinxin.savior.event.control.Eventer;
 import cn.sunjinxin.savior.event.listener.Listener;
 import com.google.common.eventbus.Subscribe;
 
@@ -29,6 +29,6 @@ public interface SyncListener<T, R> extends Listener<T, EventContext<T, R>> {
 
     @Override
     default void afterPropertiesSet() {
-        EventBus.SYNC.register(this);
+        Eventer.SYNC.register(this);
     }
 }

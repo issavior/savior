@@ -1,7 +1,7 @@
 package cn.sunjinxin.savior.event.handler;
 
 import cn.sunjinxin.savior.event.constant.EventStrategy;
-import cn.sunjinxin.savior.event.control.EventBus;
+import cn.sunjinxin.savior.event.control.Eventer;
 
 /**
  * event handler
@@ -13,7 +13,7 @@ public interface EventHandler {
 
     EventStrategy strategy();
 
-    EventBus event();
+    Eventer event();
 
     void register(Object eventListener);
 

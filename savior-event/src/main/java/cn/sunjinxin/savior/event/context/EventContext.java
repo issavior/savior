@@ -3,6 +3,8 @@ package cn.sunjinxin.savior.event.context;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.io.Serializable;
+
 /**
  * context
  *
@@ -13,7 +15,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class EventContext<T, R> {
+public class EventContext<T, R> implements Serializable {
 
     T eventType;
 
