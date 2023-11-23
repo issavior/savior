@@ -1,22 +1,22 @@
 {
   "properties": [
     {
-      "name": "savior.even.async-thread-pool.corePoolSize",
+      "name": "savior.event.async-thread-pool.corePoolSize",
       "type": "java.lang.Integer",
       "description": "Description for savior.even.async-thread-pool.corePoolSize."
     },
     {
-      "name": "savior.even.async-thread-pool.maxPoolSize",
+      "name": "savior.event.async-thread-pool.maxPoolSize",
       "type": "java.lang.Integer",
       "description": "Description for savior.even.async-thread-pool.maxPoolSize."
     },
     {
-      "name": "savior.even.async-thread-pool.queueCapacity",
+      "name": "savior.event.async-thread-pool.queueCapacity",
       "type": "java.lang.Integer",
       "description": "Description for savior.even.async-thread-pool.queueCapacity."
     },
     {
-      "name": "savior.even.async-thread-pool.threadNamePrefix",
+      "name": "savior.event.async-thread-pool.threadNamePrefix",
       "type": "java.lang.String",
       "description": "Description for savior.even.async-thread-pool.threadNamePrefix."
     }

@@ -13,7 +13,8 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public enum EventStrategy {
 
-    DEFAULT
+    DEFAULT,
+    SPRING
 
 
 }

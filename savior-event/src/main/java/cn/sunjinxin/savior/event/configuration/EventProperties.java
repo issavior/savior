@@ -13,7 +13,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@ConfigurationProperties(prefix = "savior.even")
+@ConfigurationProperties(prefix = "savior.event")
 public class EventProperties {
 
     /**

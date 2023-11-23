@@ -1,5 +1,6 @@
 package cn.sunjinxin.savior.event.listener.sub;
 
+import cn.sunjinxin.savior.event.anno.SpringAsyncListener;
 import cn.sunjinxin.savior.event.context.EventContext;
 import cn.sunjinxin.savior.event.listener.Listener;
 import cn.sunjinxin.savior.event.control.Eventer;
@@ -23,9 +24,11 @@ public interface AsyncListener<T, R> extends Listener<T, EventContext<T, R>> {
 
     @Subscribe
     @AllowConcurrentEvents
+    @SpringAsyncListener
     default void subscribe(EventContext<T, R> context) {
         Optional.ofNullable(context)
                 .filter(r -> enable(context.getEventType()))
+                .filter(r -> r.getEventer() == Eventer.ASYNC)
                 .ifPresent(this::handle);
     }
 

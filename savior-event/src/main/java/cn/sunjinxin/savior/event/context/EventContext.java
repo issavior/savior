@@ -1,5 +1,6 @@
 package cn.sunjinxin.savior.event.context;
 
+import cn.sunjinxin.savior.event.control.Eventer;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -22,4 +23,6 @@ public class EventContext<T, R> implements Serializable {
     R request;
 
     String eventId;
+
+    Eventer eventer;
 }

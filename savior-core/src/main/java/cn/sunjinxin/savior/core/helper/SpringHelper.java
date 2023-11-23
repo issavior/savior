@@ -26,6 +26,10 @@ public class SpringHelper implements BeanFactoryPostProcessor, ApplicationContex
         return applicationContext.getBean(clazz);
     }
 
+    public static void publish(Object event) {
+        applicationContext.publishEvent(event);
+    }
+
     @Override
     public void postProcessBeanFactory(@Nonnull ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
         // ignore
