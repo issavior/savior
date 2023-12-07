@@ -78,7 +78,7 @@ public class EventCommon {
      */
     private static EventHandler newInstance(Class<? extends EventHandler> r) {
         try {
-            return r.newInstance();
+            return r.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             throw new RuntimeException();
         }

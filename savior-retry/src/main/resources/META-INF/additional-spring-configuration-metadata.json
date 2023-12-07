@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "savior.retry",
+      "type": "cn.sunjinxin.savior.retry.config.RetryProperties",
+      "sourceType": "cn.sunjinxin.savior.retry.config.RetryProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "savior.retry.type",
+      "type": "cn.sunjinxin.savior.retry.factory.strategy.RetryType",
+      "sourceType": "cn.sunjinxin.savior.retry.config.RetryProperties",
+      "description": "guava or default."
+    }
+  ],
+  "hints": []
+}

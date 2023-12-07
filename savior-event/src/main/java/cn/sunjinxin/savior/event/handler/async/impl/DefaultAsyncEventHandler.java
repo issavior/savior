@@ -19,11 +19,9 @@ import java.util.concurrent.atomic.AtomicReference;
  *
  * @author issavior
  */
-@RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class DefaultAsyncEventHandler extends AsyncEventHandler {
 
-    @NonFinal
     static volatile AtomicReference<AsyncEventBus> INSTANCE = new AtomicReference<>();
 
     @Override

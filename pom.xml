@@ -14,6 +14,7 @@
         <savior.version>1.0.4</savior.version>
         <savior-core.version>1.0.4</savior-core.version>
         <savior-event.version>1.0.4</savior-event.version>
+        <savior-lock.version>1.0.4</savior-lock.version>
 
         <!-- versions -->
         <lombok.version>1.18.30</lombok.version>
@@ -26,6 +27,7 @@
         <hutool.version>5.8.23</hutool.version>
         <reflections.version>0.10.2</reflections.version>
         <snakeyaml.version>2.0</snakeyaml.version>
+        <guava-retrying.version>2.0.0</guava-retrying.version>
 
         <!-- others -->
         <maven.compiler.source>8</maven.compiler.source>
@@ -49,6 +51,13 @@
         <module>savior</module>
         <module>savior-core</module>
         <module>savior-event</module>
+        <module>savior-lock</module>
+        <module>savior-retry</module>
+        <module>savior-mq</module>
+        <module>savior-workflow</module>
+        <module>savior-toc</module>
+        <module>savior-rule</module>
+        <module>savior-cache</module>
     </modules>
 
     <licenses>

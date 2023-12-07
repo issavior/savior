@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "savior.lock.strategy",
+      "type": "cn.sunjinxin.savior.lock.factory.strategy.LockStrategy",
+      "description": "Description for savior.lock.strategy."
+    }
+  ]
+}

@@ -9,8 +9,8 @@
         <version>1.0.4</version>
     </parent>
 
-    <artifactId>savior</artifactId>
-    <version>${savior.version}</version>
+    <artifactId>savior-workflow</artifactId>
+    <version>${savior-workflow.version}</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -21,13 +21,9 @@
     <dependencies>
         <dependency>
             <groupId>cn.sunjinxin.savior</groupId>
-            <artifactId>savior-event</artifactId>
-            <version>${savior-event.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.sunjinxin.savior</groupId>
-            <artifactId>savior-lock</artifactId>
-            <version>${savior-event.version}</version>
+            <artifactId>savior-core</artifactId>
+            <version>${savior-core.version}</version>
         </dependency>
     </dependencies>
+
 </project>
