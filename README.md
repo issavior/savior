@@ -38,11 +38,16 @@ public class AppRun {
 
 Savior框架中的组件亦可以独立引入，目前支持的组件：
 
-1. 事件总线
-2. 重试机制
-3. 分布式锁
-4. 事件管道
-5. 领域扩展
-6. 工作流
-7. 缓存
-   ...
+|组件|说明  |
+|--|--|
+| savior-ext |扩展点  |
+| savior-mq |消息队列  |
+| savior-toc |超时中心  |
+| savior-rule |规则引擎  |
+| savior-lock |分布式锁  |
+| savior-retry |重试机制  |
+| savior-even |事件总线  |
+| savior-cache |多级缓存  |
+| savior-workflow |工作流  |
+| ...... |......  |
+
