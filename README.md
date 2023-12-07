@@ -1,9 +1,9 @@
 # 官网
-[轻量级分布式技术解决方案框架 - Savior](http://savior.sunjinxin.com/)
+[轻量级分布式技术解决方案框架 - Savior](http://savior.sunjinxin.cn/)
 # 介绍
-[Savior](http://savior.sunjinxin.com/)是一款轻量级分布式技术解决方案框架，接入和使用极其简单，5秒钟即可接入使用！
+[Savior](http://savior.sunjinxin.cn/)是一款轻量级分布式技术解决方案框架，接入和使用极其简单，5秒钟即可接入使用！
 
-[Savior](http://savior.sunjinxin.com/)框架亦如其名，为业务立心，为技术立命，为往圣继绝学，为万世开太平，站在巨人的肩膀，比肩神明！
+[Savior](http://savior.sunjinxin.cn/)框架亦如其名，为业务立心，为技术立命，为往圣继绝学，为万世开太平，站在巨人的肩膀，比肩神明！
 # 依赖
 中央仓库
 ```xml
