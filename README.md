@@ -46,7 +46,7 @@ Savior框架中的组件亦可以独立引入，目前支持的组件：
 | savior-rule |规则引擎  |
 | savior-lock |分布式锁  |
 | savior-retry |重试机制  |
-| savior-even |事件总线  |
+| savior-event |事件总线  |
 | savior-cache |多级缓存  |
 | savior-workflow |工作流  |
 | ...... |......  |
