@@ -9,8 +9,8 @@
         <version>1.0.5</version>
     </parent>
 
-    <artifactId>savior-cache</artifactId>
-    <version>${savior-cache.version}</version>
+    <artifactId>savior-ext</artifactId>
+    <version>${savior-ext.version}</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -25,6 +25,5 @@
             <version>${savior-core.version}</version>
         </dependency>
     </dependencies>
-
 
 </project>

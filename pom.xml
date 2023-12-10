@@ -6,15 +6,23 @@
 
     <groupId>cn.sunjinxin.savior</groupId>
     <artifactId>saviors</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>pom</packaging>
 
     <properties>
         <!-- component`version -->
-        <savior.version>1.0.4</savior.version>
-        <savior-core.version>1.0.4</savior-core.version>
-        <savior-event.version>1.0.4</savior-event.version>
-        <savior-lock.version>1.0.4</savior-lock.version>
+        <savior.version>1.0.5</savior.version>
+        <savior-mq.version>1.0.5</savior-mq.version>
+        <savior-ext.version>1.0.5</savior-ext.version>
+        <savior-toc.version>1.0.5</savior-toc.version>
+        <savior-lock.version>1.0.5</savior-lock.version>
+        <savior-core.version>1.0.5</savior-core.version>
+        <savior-rule.version>1.0.5</savior-rule.version>
+        <savior-cache.version>1.0.5</savior-cache.version>
+        <savior-event.version>1.0.5</savior-event.version>
+        <savior-retry.version>1.0.5</savior-retry.version>
+        <savior-example.version>1.0.5</savior-example.version>
+        <savior-workflow.version>1.0.5</savior-workflow.version>
 
         <!-- versions -->
         <lombok.version>1.18.30</lombok.version>
@@ -51,6 +59,8 @@
         <module>savior</module>
         <module>savior-core</module>
         <module>savior-event</module>
+        <module>savior-ext</module>
+        <module>savior-example</module>
         <module>savior-lock</module>
         <module>savior-retry</module>
         <module>savior-mq</module>

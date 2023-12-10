@@ -10,7 +10,7 @@
 <dependency>
     <groupId>cn.sunjinxin.savior</groupId>
     <artifactId>savior</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 # 启动

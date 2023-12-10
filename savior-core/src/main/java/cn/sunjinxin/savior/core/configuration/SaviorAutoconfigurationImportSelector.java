@@ -14,6 +14,7 @@ import javax.annotation.Nonnull;
 import java.lang.reflect.Modifier;
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 /**
  * SaviorAutoconfigurationImportSelector
@@ -31,6 +32,7 @@ public class SaviorAutoconfigurationImportSelector implements ImportSelector {
     @Override
     @Nonnull
     public String[] selectImports(@Nonnull AnnotationMetadata metadata) {
+
         return Optional.ofNullable(metadata.getAnnotationAttributes(Savior.class.getName()))
                 .filter(map -> (boolean) map.get(SaviorContent.ENABLE))
                 .map(map -> Optional.of(Lists.newArrayList((String[]) map.get(SaviorContent.VALUE)))
