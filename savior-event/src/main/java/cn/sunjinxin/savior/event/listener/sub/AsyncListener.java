@@ -17,11 +17,22 @@ import java.util.Optional;
  */
 public interface AsyncListener<T, R> extends Listener<T, EventContext<T, R>> {
 
+    /**
+     * t
+     *
+     * @param t /
+     * @return /
+     */
     @Override
     default boolean enable(T t) {
-        return Objects.equals(t, supportEventType());
+        return supportEventType().contains(t);
     }
 
+    /**
+     * subscribe
+     *
+     * @param context /
+     */
     @Subscribe
     @AllowConcurrentEvents
     @SpringAsyncListener
@@ -32,6 +43,9 @@ public interface AsyncListener<T, R> extends Listener<T, EventContext<T, R>> {
                 .ifPresent(this::handle);
     }
 
+    /**
+     * register
+     */
     @Override
     default void afterPropertiesSet() {
         Eventer.ASYNC.register(this);
