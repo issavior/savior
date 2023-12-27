@@ -7,7 +7,6 @@ import cn.sunjinxin.savior.event.control.Eventer;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.Subscribe;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -26,6 +25,11 @@ public interface AsyncListener<T, R> extends Listener<T, EventContext<T, R>> {
     @Override
     default boolean enable(T t) {
         return supportEventType().contains(t);
+    }
+
+    @Override
+    default void onEvent(EventContext eventContext, long l, boolean b) {
+        subscribe(eventContext);
     }
 
     /**

@@ -14,7 +14,8 @@ import lombok.experimental.FieldDefaults;
 public enum EventStrategy {
 
     DEFAULT,
-    SPRING
+    SPRING,
+    DISRUPTOR
 
 
 }
