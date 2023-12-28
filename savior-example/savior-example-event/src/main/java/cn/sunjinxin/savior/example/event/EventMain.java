@@ -22,10 +22,7 @@ public class EventMain {
         SpringApplication.run(EventMain.class, args);
 
         log.info("用户已支付订单");
-//        Eventer.SYNC.publish(EventContext.builder()
-//                        .eventType("ORDER_PAY_DONE_EVENT_VALUE")
-//                .build());
-        Eventer.ASYNC.publish(EventContext.builder()
+        Eventer.SYNC.publish(EventContext.builder()
                         .eventType("ORDER_PAY_DONE_EVENT_VALUE")
                 .build());
         Eventer.ASYNC.publish(EventContext.builder()

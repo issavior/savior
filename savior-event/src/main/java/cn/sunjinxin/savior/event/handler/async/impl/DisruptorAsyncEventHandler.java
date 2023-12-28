@@ -6,6 +6,7 @@ import cn.sunjinxin.savior.event.configuration.ThreadPoolProperties;
 import cn.sunjinxin.savior.event.constant.EventStrategy;
 import cn.sunjinxin.savior.event.context.EventContext;
 import cn.sunjinxin.savior.event.context.InnerEventContext;
+import cn.sunjinxin.savior.event.control.Eventer;
 import cn.sunjinxin.savior.event.handler.async.AsyncEventHandler;
 import com.google.common.collect.Lists;
 import com.lmax.disruptor.EventHandler;
@@ -47,15 +48,18 @@ public class DisruptorAsyncEventHandler extends AsyncEventHandler {
 
     @Override
     public void post(Object eventContext) {
-        Lists.newArrayList(eventContext).forEach(r ->
-                of().getRingBuffer()
-                        .publishEvent((event, l) -> event.setEventContext(((InnerEventContext) r).getEventContext()))
-        );
-
         Optional.of(startMark.get()).filter(BooleanUtils::isFalse).ifPresent(r -> {
             of().start();
             startMark.set(true);
         });
+        Lists.newArrayList(eventContext).forEach(r ->
+                of().getRingBuffer()
+                        .publishEvent((event, l) -> {
+                            event.setEventContext(((InnerEventContext) r).getEventContext());
+                            event.setEventer(Eventer.ASYNC);
+
+                        })
+        );
     }
 
     @Override

@@ -23,9 +23,7 @@ public enum Eventer {
     ASYNC;
 
     public <T, R> void publish(EventContext<T, R> context) {
-        InnerEventContext innerEventContext = new InnerEventContext();
-        innerEventContext.setEventContext(context);
-        innerEventContext.setEventer(this);
+        InnerEventContext<T, R> innerEventContext = InnerEventContext.<T,R>builder().eventContext(context).build();
         SpringHelper.getBean(EventContainer.class).of(this).post(innerEventContext);
     }
 }
