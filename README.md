@@ -38,16 +38,23 @@ public class AppRun {
 
 Savior框架中的组件亦可以独立引入，目前支持的组件：
 
-|组件|说明  |
-|--|--|
-| savior-ext |扩展点  |
-| savior-mq |消息队列  |
-| savior-toc |超时中心  |
-| savior-rule |规则引擎  |
-| savior-lock |分布式锁  |
-| savior-retry |重试机制  |
-| savior-event |事件总线  |
-| savior-cache |多级缓存  |
-| savior-workflow |工作流  |
-| ...... |......  |
+| 组件                                                | 说明    | 文档                                | 导航                                                                       |
+|---------------------------------------------------|-------|-----------------------------------|--------------------------------------------------------------------------|
+| **[savior-ext](savior-ext.md)**                   | 扩展点   | [《扩展点文档》](savior-ext.md)          | [https://github.com/issavior/savior](https://github.com/issavior/savior) |   
+| **[savior-mq](savior-mq.md)**                     | 消息队列  | [《消息队列文档》](savior-mq.md)          | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-toc](savior-toc.md)**                   | 超时中心  | [《超时中心文档》](savior-toc.md)         | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-rule](savior-rule.md)**                 | 规则引擎  | [《规则引擎文档》](savior-rule.md)        | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-lock](savior-lock.md)**                 | 分布式锁  | [《分布式锁文档》](savior-lock.md)        | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-core](savior-core.md)**                 | 核心组件  | [《核心组件文档》](savior-core.md)        | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-retry](savior-retry.md)**               | 重试机制  | [《重试机制文档》](savior-retry.md)       | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-trace](savior-trace.md)**               | 链路追踪  | [《链路追踪文档》](savior-trace.md)       | [https://github.com/issavior/savior](https://github.com/issavior/savior) |  
+| **[savior-ateye](savior-ateye.md)**               | 服务穿透  | [《服务穿透文档》](savior-ateye.md)       | [https://github.com/issavior/savior](https://github.com/issavior/savior) |   
+| **[savior-event](savior-event.md)**               | 事件总线  | [《事件总线文档》](savior-event.md)       | [https://github.com/issavior/savior](https://github.com/issavior/savior) |   
+| **[savior-cache](savior-cache.md)**               | 多级缓存  | [《多级缓存文档》](savior-cache.md)       | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-example](savior-example.md)**           | 示例    | [《示例文档》](savior-example.md)       | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-workflow](savior-workflow.md)**         | 工作流   | [《工作流文档》](savior-workflow.md)     | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-sequence](savior-sequence.md)**         | 分布式ID | [《分布式ID文档》](savior-sequence.md)   | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-statemachine](savior-statemachine.md)** | 状态机   | [《状态机文档》](savior-statemachine.md) | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| ...                                               | ...   | ...                               | ...                                                                      | 
+
 
