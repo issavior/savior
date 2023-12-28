@@ -1,12 +1,14 @@
 package cn.sunjinxin.savior.event.listener.sub;
 
+import cn.sunjinxin.savior.core.helper.SpringHelper;
+import cn.sunjinxin.savior.event.container.EventContainer;
 import cn.sunjinxin.savior.event.context.EventContext;
+import cn.sunjinxin.savior.event.context.InnerEventContext;
 import cn.sunjinxin.savior.event.control.Eventer;
 import cn.sunjinxin.savior.event.listener.Listener;
 import com.google.common.eventbus.Subscribe;
 import org.springframework.context.event.EventListener;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -14,7 +16,8 @@ import java.util.Optional;
  *
  * @author issavior
  */
-public interface SyncListener<T, R> extends Listener<T, EventContext<T, R>> {
+@SuppressWarnings("all")
+public interface SyncListener<EventType, RequestParam> extends Listener<EventType, EventContext<EventType, RequestParam>> {
 
     /**
      * t
@@ -23,8 +26,13 @@ public interface SyncListener<T, R> extends Listener<T, EventContext<T, R>> {
      * @return /
      */
     @Override
-    default boolean enable(T t) {
+    default boolean enable(EventType t) {
         return supportEventType().contains(t);
+    }
+
+    @Override
+    default void onEvent(InnerEventContext event, long l, boolean b) {
+        subscribe(event);
     }
 
     /**
@@ -34,11 +42,11 @@ public interface SyncListener<T, R> extends Listener<T, EventContext<T, R>> {
      */
     @Subscribe
     @EventListener
-    default void subscribe(EventContext<T, R> context) {
+    default void subscribe(InnerEventContext<EventType, RequestParam> context) {
         Optional.ofNullable(context)
-                .filter(r -> enable(context.getEventType()))
+                .filter(r -> enable(context.getEventContext().getEventType()))
                 .filter(r -> r.getEventer() == Eventer.SYNC)
-                .ifPresent(this::handle);
+                .ifPresent(r -> this.handle(r.getEventContext()));
     }
 
     /**
@@ -46,6 +54,6 @@ public interface SyncListener<T, R> extends Listener<T, EventContext<T, R>> {
      */
     @Override
     default void afterPropertiesSet() {
-        Eventer.SYNC.register(this);
+        SpringHelper.getBean(EventContainer.class).of(Eventer.SYNC).register(this);
     }
 }

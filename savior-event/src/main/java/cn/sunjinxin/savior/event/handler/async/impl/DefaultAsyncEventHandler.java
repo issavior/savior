@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.NonFinal;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -25,8 +26,8 @@ public class DefaultAsyncEventHandler extends AsyncEventHandler {
     static volatile AtomicReference<AsyncEventBus> INSTANCE = new AtomicReference<>();
 
     @Override
-    public EventStrategy strategy() {
-        return EventStrategy.DEFAULT;
+    public List<EventStrategy> strategy() {
+        return Lists.newArrayList(EventStrategy.DEFAULT);
     }
 
     @Override

@@ -1,0 +1,6 @@
+savior:
+  event:
+    strategy: disruptor
+
+server:
+  port: 9001

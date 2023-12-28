@@ -7,6 +7,8 @@ import com.google.common.collect.Lists;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 /**
  * spring sync
  *
@@ -16,8 +18,8 @@ import lombok.experimental.FieldDefaults;
 public class SpringAsyncEventHandler extends AsyncEventHandler {
 
     @Override
-    public EventStrategy strategy() {
-        return EventStrategy.SPRING;
+    public List<EventStrategy> strategy() {
+        return Lists.newArrayList(EventStrategy.SPRING);
     }
 
     @Override

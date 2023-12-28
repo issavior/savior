@@ -27,7 +27,7 @@ public class EventContainer {
     public EventHandler of(Eventer event) {
         return Optional.ofNullable(eventHandlers).orElse(Lists.newArrayList())
                 .stream()
-                .filter(r -> r.strategy() == eventProperties.getStrategy())
+                .filter(r -> r.strategy().contains(eventProperties.getStrategy()))
                 .filter(r -> r.event() == event)
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("can`t match event handler"));

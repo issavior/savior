@@ -7,6 +7,8 @@ import com.google.common.eventbus.EventBus;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 /**
  * default sync
  *
@@ -15,8 +17,8 @@ import lombok.experimental.FieldDefaults;
 public class DefaultSyncEventHandler extends SyncEventHandler {
 
     @Override
-    public EventStrategy strategy() {
-        return EventStrategy.DEFAULT;
+    public List<EventStrategy> strategy() {
+        return Lists.newArrayList(EventStrategy.DEFAULT,EventStrategy.DISRUPTOR);
     }
 
     @Override

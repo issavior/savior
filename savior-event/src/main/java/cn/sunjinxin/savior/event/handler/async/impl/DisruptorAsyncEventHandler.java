@@ -1,24 +1,23 @@
 package cn.sunjinxin.savior.event.handler.async.impl;
 
+import cn.sunjinxin.savior.core.helper.SpringHelper;
+import cn.sunjinxin.savior.event.configuration.EventProperties;
+import cn.sunjinxin.savior.event.configuration.ThreadPoolProperties;
 import cn.sunjinxin.savior.event.constant.EventStrategy;
 import cn.sunjinxin.savior.event.context.EventContext;
-import cn.sunjinxin.savior.event.convert.EventCommon;
+import cn.sunjinxin.savior.event.context.InnerEventContext;
 import cn.sunjinxin.savior.event.handler.async.AsyncEventHandler;
 import com.google.common.collect.Lists;
-import com.google.common.eventbus.AsyncEventBus;
-import com.google.common.eventbus.EventBus;
-import com.lmax.disruptor.EventFactory;
 import com.lmax.disruptor.EventHandler;
-import com.lmax.disruptor.EventTranslator;
-import com.lmax.disruptor.RingBuffer;
 import com.lmax.disruptor.dsl.Disruptor;
 import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import org.apache.commons.lang3.BooleanUtils;
 import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -27,17 +26,16 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author issavior
  */
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@SuppressWarnings("all")
 public class DisruptorAsyncEventHandler extends AsyncEventHandler {
 
-    /**
-     * 环形缓冲区大小
-     */
-    private static final int BUFFER_SIZE = 16;
-    static volatile AtomicReference<Disruptor<Event>> INSTANCE = new AtomicReference<>();
+    private static final int BUFFER_SIZE = 1024;
+    static volatile AtomicReference<Disruptor<InnerEventContext>> INSTANCE = new AtomicReference<>();
+    static volatile AtomicBoolean startMark = new AtomicBoolean(false);
 
     @Override
-    public EventStrategy strategy() {
-        return EventStrategy.DISRUPTOR;
+    public List<EventStrategy> strategy() {
+        return Lists.newArrayList(EventStrategy.DISRUPTOR);
     }
 
     @Override
@@ -51,8 +49,13 @@ public class DisruptorAsyncEventHandler extends AsyncEventHandler {
     public void post(Object eventContext) {
         Lists.newArrayList(eventContext).forEach(r ->
                 of().getRingBuffer()
-                        .publishEvent((event, l) -> event.setEventContext((EventContext) r))
+                        .publishEvent((event, l) -> event.setEventContext(((InnerEventContext) r).getEventContext()))
         );
+
+        Optional.of(startMark.get()).filter(BooleanUtils::isFalse).ifPresent(r -> {
+            of().start();
+            startMark.set(true);
+        });
     }
 
     @Override
@@ -60,23 +63,11 @@ public class DisruptorAsyncEventHandler extends AsyncEventHandler {
 
     }
 
-    private static Disruptor<Event> of() {
-        return Optional.ofNullable(INSTANCE.get()).orElseGet(() -> {
-
-            Disruptor<Event> eventDisruptor = INSTANCE.updateAndGet(r ->
-                    new Disruptor<>(Event::new,
-                            BUFFER_SIZE,
-                            new CustomizableThreadFactory("event-handler-")));
-            eventDisruptor.start();
-            return eventDisruptor;
-
-        });
-    }
-
-    static class Event {
-
-        @Setter
-        @Getter
-        private EventContext eventContext;
+    private static Disruptor<InnerEventContext> of() {
+        return Optional.ofNullable(INSTANCE.get()).orElseGet(() ->
+                INSTANCE.updateAndGet(r ->
+                        new Disruptor<>(InnerEventContext::new,
+                                BUFFER_SIZE,
+                                new CustomizableThreadFactory(SpringHelper.getBean(EventProperties.class).getAsyncThreadPool().getThreadNamePrefix()))));
     }
 }

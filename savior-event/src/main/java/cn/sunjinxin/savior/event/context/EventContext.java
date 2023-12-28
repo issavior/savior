@@ -16,13 +16,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class EventContext<T, R> implements Serializable {
+public class EventContext<EventType, RequestParam> implements Serializable {
 
-    T eventType;
+    EventType eventType;
 
-    R request;
+    RequestParam request;
 
     String eventId;
 
-    Eventer eventer;
 }

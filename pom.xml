@@ -62,7 +62,6 @@
         <module>savior-core</module>
         <module>savior-event</module>
         <module>savior-ext</module>
-        <module>savior-example</module>
         <module>savior-lock</module>
         <module>savior-retry</module>
         <module>savior-mq</module>
