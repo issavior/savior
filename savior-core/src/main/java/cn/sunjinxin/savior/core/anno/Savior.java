@@ -1,6 +1,7 @@
 package cn.sunjinxin.savior.core.anno;
 
 import cn.sunjinxin.savior.core.configuration.SaviorAutoconfigurationImportSelector;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
 

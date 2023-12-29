@@ -18,4 +18,12 @@
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>cn.sunjinxin.savior</groupId>
+            <artifactId>savior-core</artifactId>
+            <version>${savior-core.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>
