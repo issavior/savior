@@ -10,6 +10,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.PriorityOrdered;
 
 import javax.annotation.Nonnull;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * spring helper
@@ -24,6 +26,18 @@ public class SpringHelper implements BeanFactoryPostProcessor, ApplicationContex
 
     public static <T> T getBean(Class<T> clazz) {
         return applicationContext.getBean(clazz);
+    }
+
+    public static Object getBean(String beanName) {
+        return applicationContext.getBean(beanName);
+    }
+
+    public static <T> T getBean(String beanName, Class<T> clazz) {
+        return applicationContext.getBean(beanName, clazz);
+    }
+
+    public static List<String> getAllBeanName() {
+        return Arrays.asList(applicationContext.getBeanDefinitionNames());
     }
 
     public static void publish(Object event) {

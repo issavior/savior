@@ -73,6 +73,7 @@
         <module>savior-ateye</module>
         <module>savior-statemachine</module>
         <module>savior-trace</module>
+        <module>savior-example/savior-example-ateye</module>
     </modules>
 
     <licenses>

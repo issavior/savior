@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * @author sunjinxin
  * @since 2023/12/29 16:59
  */
-@Target(ElementType.METHOD)
+@Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AteyeParam {
 
