@@ -24,6 +24,18 @@
             <artifactId>savior-core</artifactId>
             <version>${savior-core.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.googlecode.aviator</groupId>
+            <artifactId>aviator</artifactId>
+            <version>${savior-aviator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>QLExpress</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>

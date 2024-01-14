@@ -19,4 +19,18 @@
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>cn.sunjinxin.savior</groupId>
+            <artifactId>savior-core</artifactId>
+            <version>1.0.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.7.17</version>
+        </dependency>
+    </dependencies>
+
 </project>
