@@ -6,23 +6,23 @@
 
     <groupId>cn.sunjinxin.savior</groupId>
     <artifactId>saviors</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7-savior</version>
     <packaging>pom</packaging>
 
     <properties>
         <!-- component`version -->
-        <savior.version>1.0.6</savior.version>
-        <savior-mq.version>1.0.6</savior-mq.version>
-        <savior-ext.version>1.0.6</savior-ext.version>
-        <savior-toc.version>1.0.6</savior-toc.version>
-        <savior-lock.version>1.0.6</savior-lock.version>
-        <savior-core.version>1.0.6</savior-core.version>
-        <savior-rule.version>1.0.6</savior-rule.version>
-        <savior-cache.version>1.0.6</savior-cache.version>
-        <savior-event.version>1.0.6</savior-event.version>
-        <savior-retry.version>1.0.6</savior-retry.version>
-        <savior-example.version>1.0.6</savior-example.version>
-        <savior-workflow.version>1.0.6</savior-workflow.version>
+        <savior.version>1.0.7-savior</savior.version>
+        <savior-mq.version>1.0.7-savior</savior-mq.version>
+        <savior-ext.version>1.0.7-savior</savior-ext.version>
+        <savior-toc.version>1.0.7-savior</savior-toc.version>
+        <savior-lock.version>1.0.7-savior</savior-lock.version>
+        <savior-core.version>1.0.7-savior</savior-core.version>
+        <savior-rule.version>1.0.7-savior</savior-rule.version>
+        <savior-cache.version>1.0.7-savior</savior-cache.version>
+        <savior-event.version>1.0.7-savior</savior-event.version>
+        <savior-retry.version>1.0.7-savior</savior-retry.version>
+        <savior-example.version>1.0.7-savior</savior-example.version>
+        <savior-workflow.version>1.0.7-savior</savior-workflow.version>
 
         <!-- versions -->
         <lombok.version>1.18.30</lombok.version>
@@ -75,7 +75,6 @@
         <module>savior-ateye</module>
         <module>savior-statemachine</module>
         <module>savior-trace</module>
-        <module>savior-example/savior-example-ateye</module>
     </modules>
 
     <licenses>

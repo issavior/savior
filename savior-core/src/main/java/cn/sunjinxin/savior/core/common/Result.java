@@ -1,6 +1,7 @@
 package cn.sunjinxin.savior.core.common;
 
 import cn.sunjinxin.savior.core.constant.CommonConstants;
+import cn.sunjinxin.savior.core.constant.ResultEnum;
 import lombok.*;
 
 import java.io.Serializable;
@@ -28,7 +29,7 @@ public class Result<T> implements Serializable {
 
     @Getter
     @Setter
-    private int code;
+    private String code;
 
     @Getter
     @Setter
@@ -39,38 +40,38 @@ public class Result<T> implements Serializable {
     private T data;
 
     public static <T> Result<T> ok() {
-        return restResult(null, CommonConstants.SUCCESS, null);
+        return assemble(null, ResultEnum.SUCCESS, "200", null);
     }
 
     public static <T> Result<T> ok(T data) {
-        return restResult(data, CommonConstants.SUCCESS, null);
+        return assemble(data, ResultEnum.SUCCESS, "200", null);
     }
 
     public static <T> Result<T> ok(T data, String msg) {
-        return restResult(data, CommonConstants.SUCCESS, msg);
+        return assemble(data, ResultEnum.SUCCESS, "200", msg);
     }
 
     public static <T> Result<T> failed() {
-        return restResult(null, CommonConstants.FAIL, null);
+        return assemble(null, ResultEnum.FAIL, "400", null);
     }
 
     public static <T> Result<T> failed(String msg) {
-        return restResult(null, CommonConstants.FAIL, msg);
+        return assemble(null, ResultEnum.FAIL, "400", msg);
     }
 
     public static <T> Result<T> failed(T data) {
-        return restResult(data, CommonConstants.FAIL, null);
+        return assemble(data, ResultEnum.FAIL, "400", null);
     }
 
     public static <T> Result<T> failed(T data, String msg) {
-        return restResult(data, CommonConstants.FAIL, msg);
+        return assemble(data, ResultEnum.FAIL, "400", msg);
     }
 
 
-    private static <T> Result<T> restResult(T data, int code, String msg) {
+    private static <T> Result<T> assemble(T data, ResultEnum mark, String code, String msg) {
         Result<T> apiResult = new Result<>();
-        apiResult.setSuccess(Optional.of(code).filter(c -> c.equals(CommonConstants.SUCCESS)).isPresent());
-        apiResult.setSuccess(Optional.of(code).filter(c -> c.equals(CommonConstants.FAIL)).isPresent());
+        apiResult.setSuccess(Optional.of(mark).filter(c -> c.equals(ResultEnum.SUCCESS)).isPresent());
+        apiResult.setFail(Optional.of(mark).filter(c -> c.equals(ResultEnum.FAIL)).isPresent());
         apiResult.setCode(code);
         apiResult.setData(data);
         apiResult.setMsg(msg);
