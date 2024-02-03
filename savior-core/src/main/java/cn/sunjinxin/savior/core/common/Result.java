@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * result
@@ -74,6 +75,15 @@ public class Result<T> implements Serializable {
         apiResult.setData(data);
         apiResult.setMsg(msg);
         return apiResult;
+    }
+
+    public <F> Result<F> copy(Function<T, F> function) {
+        return Result.<F>builder()
+                .success(this.isSuccess())
+                .fail(this.isFail())
+                .code(this.getCode())
+                .msg(this.getMsg()).data(Optional.ofNullable(this.getData()).map(function).orElse(null))
+                .build();
     }
 
 }

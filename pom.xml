@@ -6,23 +6,23 @@
 
     <groupId>cn.sunjinxin.savior</groupId>
     <artifactId>saviors</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <packaging>pom</packaging>
 
     <properties>
         <!-- component`version -->
-        <savior.version>1.0.5</savior.version>
-        <savior-mq.version>1.0.5</savior-mq.version>
-        <savior-ext.version>1.0.5</savior-ext.version>
-        <savior-toc.version>1.0.5</savior-toc.version>
-        <savior-lock.version>1.0.5</savior-lock.version>
-        <savior-core.version>1.0.5</savior-core.version>
-        <savior-rule.version>1.0.5</savior-rule.version>
-        <savior-cache.version>1.0.5</savior-cache.version>
-        <savior-event.version>1.0.5</savior-event.version>
-        <savior-retry.version>1.0.5</savior-retry.version>
-        <savior-example.version>1.0.5</savior-example.version>
-        <savior-workflow.version>1.0.5</savior-workflow.version>
+        <savior.version>1.0.6</savior.version>
+        <savior-mq.version>1.0.6</savior-mq.version>
+        <savior-ext.version>1.0.6</savior-ext.version>
+        <savior-toc.version>1.0.6</savior-toc.version>
+        <savior-lock.version>1.0.6</savior-lock.version>
+        <savior-core.version>1.0.6</savior-core.version>
+        <savior-rule.version>1.0.6</savior-rule.version>
+        <savior-cache.version>1.0.6</savior-cache.version>
+        <savior-event.version>1.0.6</savior-event.version>
+        <savior-retry.version>1.0.6</savior-retry.version>
+        <savior-example.version>1.0.6</savior-example.version>
+        <savior-workflow.version>1.0.6</savior-workflow.version>
 
         <!-- versions -->
         <lombok.version>1.18.30</lombok.version>
@@ -38,7 +38,8 @@
         <guava-retrying.version>2.0.0</guava-retrying.version>
         <transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
         <disruptor.version>3.4.4</disruptor.version>
-        <savior-aviator.version>5.4.1</savior-aviator.version>
+        <fastjson2.version>2.0.46</fastjson2.version>
+        <googlecode-aviator.version>5.4.1</googlecode-aviator.version>
 
         <!-- others -->
         <maven.compiler.source>8</maven.compiler.source>

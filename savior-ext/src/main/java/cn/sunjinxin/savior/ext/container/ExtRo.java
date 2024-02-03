@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class ExtParam {
+public class ExtRo {
     String bizCode;
     @Builder.Default()
     String scenario = "default";

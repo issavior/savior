@@ -70,4 +70,9 @@ public interface CommonConstants {
 	 */
 	String SIZE = "size";
 
+	/**
+	 * :
+	 */
+	String COLON = ":";
+
 }

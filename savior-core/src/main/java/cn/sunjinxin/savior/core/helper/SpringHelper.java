@@ -1,6 +1,7 @@
 package cn.sunjinxin.savior.core.helper;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
@@ -22,6 +23,7 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class SpringHelper implements BeanFactoryPostProcessor, ApplicationContextAware, PriorityOrdered {
 
+    @Getter
     static ApplicationContext applicationContext;
 
     public static <T> T getBean(Class<T> clazz) {

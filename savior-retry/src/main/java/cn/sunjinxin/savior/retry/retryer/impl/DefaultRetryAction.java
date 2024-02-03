@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
  * @since 2023/11/14 14:32
  */
 public class DefaultRetryAction implements RetryAction {
+
     @Override
     public RetryType getStrategy() {
         return RetryType.DEFAULT;

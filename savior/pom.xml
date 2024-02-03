@@ -6,7 +6,7 @@
     <parent>
         <groupId>cn.sunjinxin.savior</groupId>
         <artifactId>saviors</artifactId>
-        <version>1.0.5</version>
+        <version>1.0.6</version>
     </parent>
 
     <artifactId>savior</artifactId>
@@ -24,10 +24,23 @@
             <artifactId>savior-event</artifactId>
             <version>${savior-event.version}</version>
         </dependency>
+
         <dependency>
             <groupId>cn.sunjinxin.savior</groupId>
             <artifactId>savior-lock</artifactId>
-            <version>${savior-event.version}</version>
+            <version>${savior-lock.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.sunjinxin.savior</groupId>
+            <artifactId>savior-ext</artifactId>
+            <version>${savior-ext.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.sunjinxin.savior</groupId>
+            <artifactId>savior-retry</artifactId>
+            <version>${savior-retry.version}</version>
         </dependency>
     </dependencies>
 </project>

@@ -11,16 +11,12 @@ import java.util.function.Predicate;
 /**
  * @author issavior
  */
-public class ExtExecutor {
+public class ExtExecutor<E extends IExt> {
 
-    private final Class<IExt> clazz;
+    private final Class<E> clazz;
 
-    private ExtExecutor(Class<IExt> clazz) {
+    public ExtExecutor(Class<E> clazz) {
         this.clazz = clazz;
-    }
-
-    public static ExtExecutor abilityClass(Class<IExt> clazz) {
-        return new ExtExecutor(clazz);
     }
 
     /**
@@ -32,7 +28,7 @@ public class ExtExecutor {
      * @param <R>      /
      * @return /
      */
-    public <T extends ExtParam, R> R execFirst(T target, Function<IExt, R> callBack) {
+    public <T extends ExtRo, R> R execFirst(T target, Function<E, R> callBack) {
         return Optional.ofNullable(ExtContainer.getBeans(target, clazz))
                 .orElse(Lists.newArrayList())
                 .stream()
@@ -49,7 +45,7 @@ public class ExtExecutor {
      * @param consumer /
      * @param <T>      /
      */
-    public <T extends ExtParam> void execAll(T target, Consumer<IExt> consumer) {
+    public <T extends ExtRo> void execAll(T target, Consumer<E> consumer) {
         Optional.ofNullable(ExtContainer.getBeans(target, clazz))
                 .orElse(Lists.newArrayList())
                 .stream()
@@ -65,7 +61,7 @@ public class ExtExecutor {
      * @param predicate /
      * @param <T>       /
      */
-    public <T extends ExtParam> void execFilter(T target, Consumer<IExt> consumer, Predicate<IExt> predicate) {
+    public <T extends ExtRo> void execFilter(T target, Consumer<E> consumer, Predicate<IExt> predicate) {
         Optional.ofNullable(ExtContainer.getBeans(target, clazz))
                 .orElse(Lists.newArrayList())
                 .stream()

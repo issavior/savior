@@ -6,7 +6,7 @@
     <parent>
         <groupId>cn.sunjinxin.savior</groupId>
         <artifactId>saviors</artifactId>
-        <version>1.0.5</version>
+        <version>1.0.6</version>
     </parent>
 
     <artifactId>savior-core</artifactId>
@@ -106,9 +106,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.54</version>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${fastjson2.version}</version>
         </dependency>
 
     </dependencies>

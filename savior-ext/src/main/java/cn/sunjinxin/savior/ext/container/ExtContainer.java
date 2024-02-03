@@ -14,7 +14,6 @@ import javax.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * ext init
@@ -33,8 +32,9 @@ public class ExtContainer implements BeanPostProcessor {
      * @param clazz   /
      * @return /
      */
-    public static List<IExt> getBeans(ExtParam request, Class<IExt> clazz) {
-        return EXTENSION_MAP.get(String.format("%s_%s", request.getIndustry(), request.getBusiness()))
+    @SuppressWarnings("all")
+    public static <E>List<E> getBeans(ExtRo request, Class<E> clazz) {
+        return (List<E>)EXTENSION_MAP.get(String.format("%s_%s", request.getIndustry(), request.getBusiness()))
                 .get(clazz)
                 .get(String.format("%s_%s", request.getBizCode(), request.getScenario()));
     }
@@ -49,7 +49,7 @@ public class ExtContainer implements BeanPostProcessor {
         ExtensionPoint extensionPoint = annotations[0];
         Class<? extends IExt> superclass = checkAbs(bean);
         Ability ability = superclass.getAnnotation(Ability.class);
-        Assert.isTrue(ObjectUtils.isNotEmpty(ability), () -> new RuntimeException("error"));
+        Assert.isTrue(ObjectUtils.isNotEmpty(ability), () -> new RuntimeException("Need to add @ Ability annotation"));
 
         EXTENSION_MAP.computeIfAbsent(String.format("%s_%s", ability.industry(), ability.business()), v -> Maps.newHashMap())
                 .computeIfAbsent(superclass, v -> Maps.newHashMap())
@@ -62,12 +62,16 @@ public class ExtContainer implements BeanPostProcessor {
     private Class<? extends IExt> checkAbs(Object bean) {
         @SuppressWarnings("all")
         Class<? extends IExt> superclass = (Class<? extends IExt>) bean.getClass().getSuperclass();
-        if (Optional.ofNullable(superclass).filter(abs -> Arrays.stream(abs.getInterfaces()).anyMatch(r -> r == IExt.class))
-                // todo
-//                .filter(abs -> abs.getAnnotation(Ability.class) != null)
-                .isPresent()) {
+
+        if (superclass == null) {
+            throw new RuntimeException("An abstract class that needs to inherit the annotation @ Ability and implement the IExt interface");
+
+        }
+
+        if (Arrays.stream(superclass.getInterfaces()).allMatch(r -> r != IExt.class)) {
             beanSpecs(bean.getClass());
         }
+
         return superclass;
     }
 
