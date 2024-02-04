@@ -1,6 +1,6 @@
 savior:
   event:
-    strategy: disruptor
+    strategy: spring
 
 server:
   port: 9001

@@ -57,7 +57,6 @@ public class DisruptorAsyncEventHandler extends AsyncEventHandler {
                         .publishEvent((event, l) -> {
                             event.setEventContext(((InnerEventContext) r).getEventContext());
                             event.setEventer(Eventer.ASYNC);
-
                         })
         );
     }

@@ -1,6 +1,8 @@
 package cn.sunjinxin.savior.event.handler.sync.impl;
 
 import cn.sunjinxin.savior.event.constant.EventStrategy;
+import cn.sunjinxin.savior.event.context.InnerEventContext;
+import cn.sunjinxin.savior.event.control.Eventer;
 import cn.sunjinxin.savior.event.handler.sync.SyncEventHandler;
 import com.google.common.collect.Lists;
 import com.google.common.eventbus.EventBus;
@@ -27,8 +29,12 @@ public class DefaultSyncEventHandler extends SyncEventHandler {
     }
 
     @Override
+    @SuppressWarnings("all")
     public void post(Object eventContext) {
-        Lists.newArrayList(eventContext).forEach(r -> of().post(r));
+        Lists.newArrayList(eventContext).forEach(r -> of().post(InnerEventContext.builder()
+                .eventContext(((InnerEventContext) r).getEventContext())
+                .eventer(Eventer.SYNC)
+                .build()));
     }
 
     @Override

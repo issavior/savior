@@ -1,6 +1,8 @@
 package cn.sunjinxin.savior.event.handler.async.impl;
 
 import cn.sunjinxin.savior.event.constant.EventStrategy;
+import cn.sunjinxin.savior.event.context.InnerEventContext;
+import cn.sunjinxin.savior.event.control.Eventer;
 import cn.sunjinxin.savior.event.convert.EventCommon;
 import cn.sunjinxin.savior.event.handler.async.AsyncEventHandler;
 import com.google.common.collect.Lists;
@@ -36,8 +38,12 @@ public class DefaultAsyncEventHandler extends AsyncEventHandler {
     }
 
     @Override
+    @SuppressWarnings("all")
     public void post(Object eventContext) {
-        Lists.newArrayList(eventContext).forEach(r -> of().post(r));
+        Lists.newArrayList(eventContext).forEach(r -> of().post(InnerEventContext.builder()
+                .eventContext(((InnerEventContext) r).getEventContext())
+                .eventer(Eventer.ASYNC)
+                .build()));
     }
 
     @Override

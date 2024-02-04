@@ -2,7 +2,6 @@ package cn.sunjinxin.savior.core.anno;
 
 import cn.sunjinxin.savior.core.configuration.SaviorAutoconfigurationImportSelector;
 import org.springframework.context.annotation.Import;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.lang.annotation.*;
 
@@ -15,7 +14,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import(SaviorAutoconfigurationImportSelector.class)
-@EnableAsync
 public @interface Savior {
 
     /**

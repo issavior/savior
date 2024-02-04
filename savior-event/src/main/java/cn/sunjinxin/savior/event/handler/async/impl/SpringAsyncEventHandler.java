@@ -2,6 +2,8 @@ package cn.sunjinxin.savior.event.handler.async.impl;
 
 import cn.sunjinxin.savior.core.helper.SpringHelper;
 import cn.sunjinxin.savior.event.constant.EventStrategy;
+import cn.sunjinxin.savior.event.context.InnerEventContext;
+import cn.sunjinxin.savior.event.control.Eventer;
 import cn.sunjinxin.savior.event.handler.async.AsyncEventHandler;
 import com.google.common.collect.Lists;
 import lombok.AccessLevel;
@@ -28,8 +30,12 @@ public class SpringAsyncEventHandler extends AsyncEventHandler {
     }
 
     @Override
+    @SuppressWarnings("all")
     public void post(Object eventContext) {
-        Lists.newArrayList(eventContext).forEach(SpringHelper::publish);
+        Lists.newArrayList(eventContext).forEach(r -> SpringHelper.publish(InnerEventContext.builder()
+                .eventContext(((InnerEventContext) r).getEventContext())
+                .eventer(Eventer.ASYNC)
+                .build()));
     }
 
     @Override

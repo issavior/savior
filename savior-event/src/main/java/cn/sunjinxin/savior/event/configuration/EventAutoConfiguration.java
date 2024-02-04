@@ -7,6 +7,7 @@ import cn.sunjinxin.savior.event.container.EventContainer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
  * @author issavior
  */
 @Configuration
+@EnableAsync
 public class EventAutoConfiguration {
 
     @Bean
