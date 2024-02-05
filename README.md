@@ -1,19 +1,28 @@
 # 官网
+
 [轻量级分布式技术解决方案框架 - Savior](http://savior.sunjinxin.cn/)
+
 # 介绍
+
 [Savior](http://savior.sunjinxin.cn/)是一款轻量级分布式技术解决方案框架，接入和使用极其简单，5秒钟即可接入使用！
 
 [Savior](http://savior.sunjinxin.cn/)框架亦如其名，为业务立心，为技术立命，为往圣继绝学，为万世开太平，站在巨人的肩膀，比肩神明！
+
 # 依赖
+
 中央仓库
+
 ```xml
+
 <dependency>
     <groupId>cn.sunjinxin.savior</groupId>
     <artifactId>savior</artifactId>
-    <version>1.0.8-savior</version>
+    <version>1.0.9-savior</version>
 </dependency>
 ```
+
 # 启动
+
 在启动类上标注@Savior注解，即可启动Savior框架所有组件的功能。
 
 ```java
@@ -43,6 +52,7 @@ Savior框架中的组件亦可以独立引入，目前支持的组件：
 | **[savior-ext](savior-ext.md)**                   | 扩展点   | [《扩展点文档》](savior-ext.md)          | [https://github.com/issavior/savior](https://github.com/issavior/savior) |   
 | **[savior-mq](savior-mq.md)**                     | 消息队列  | [《消息队列文档》](savior-mq.md)          | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
 | **[savior-toc](savior-toc.md)**                   | 超时中心  | [《超时中心文档》](savior-toc.md)         | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
+| **[savior-doc](savior-doc.md)**                   | 接口文档  | [《状态机文档》](savior-doc.md)          | [https://github.com/issavior/savior](https://github.com/issavior/savior) |
 | **[savior-rule](savior-rule.md)**                 | 规则引擎  | [《规则引擎文档》](savior-rule.md)        | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
 | **[savior-lock](savior-lock.md)**                 | 分布式锁  | [《分布式锁文档》](savior-lock.md)        | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 
 | **[savior-core](savior-core.md)**                 | 核心组件  | [《核心组件文档》](savior-core.md)        | [https://github.com/issavior/savior](https://github.com/issavior/savior) | 

@@ -6,7 +6,7 @@
     <parent>
         <groupId>cn.sunjinxin.savior</groupId>
         <artifactId>saviors</artifactId>
-        <version>1.0.8-savior</version>
+        <version>1.0.9-savior</version>
     </parent>
 
     <artifactId>savior</artifactId>

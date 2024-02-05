@@ -34,6 +34,7 @@ import java.util.Optional;
  * @author issavior
  */
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Deprecated
 public class DocParser implements BeanPostProcessor, ApplicationContextAware {
 
     ApplicationContext applicationContext;
@@ -43,7 +44,7 @@ public class DocParser implements BeanPostProcessor, ApplicationContextAware {
         Doc doc = bean.getClass().getAnnotation(Doc.class);
 
         if (doc == null) {
-            return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
+            return bean;
         }
 
         AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(Docket.class)
@@ -57,13 +58,13 @@ public class DocParser implements BeanPostProcessor, ApplicationContextAware {
 
         factory.registerBeanDefinition(beanName + "SaviorDocket", beanDefinition);
 
-        return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
+        return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(@Nonnull Object bean, @Nonnull String beanName) throws BeansException {
         if (!(bean instanceof Docket)) {
-            return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
+            return bean;
         }
 
         String substring = beanName.substring(0, beanName.length() - "SaviorDocket".length());
@@ -78,7 +79,7 @@ public class DocParser implements BeanPostProcessor, ApplicationContextAware {
                 .paths(PathSelectors.regex("/" + regex + ".*"))
                 .build();
 
-        return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
+        return bean;
     }
 
     private ApiInfo api() {

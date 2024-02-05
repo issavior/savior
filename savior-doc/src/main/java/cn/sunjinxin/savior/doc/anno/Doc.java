@@ -1,5 +1,6 @@
 package cn.sunjinxin.savior.doc.anno;
 
+import com.google.common.annotations.Beta;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.annotation.ElementType;
@@ -14,6 +15,7 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
+@Deprecated
 public @interface Doc {
 
 }
